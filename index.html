@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Image Studio</title>
+    <script type="text/tailwindcss">
+      module.exports = {
+        theme: {
+          extend: {
+            colors: {
+              'primary': '#7c3aed',
+              'primary-hover': '#6d28d9',
+              'primary-focus': 'rgba(124, 58, 237, 0.5)',
+              'dark-bg': '#111827',
+              'dark-card': '#1f2937',
+              'dark-border': '#374151',
+              'dark-text': '#d1d5db',
+              'dark-text-secondary': '#9ca3af',
+            },
+            animation: {
+              'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'shimmer': 'shimmer 2s infinite',
+            },
+            keyframes: {
+              shimmer: {
+                '0%, 100%': { backgroundPosition: '-1000px 0' },
+                '50%': { backgroundPosition: '1000px 0' },
+              },
+            },
+          }
+        }
+      }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+</head>
+<body class="bg-dark-bg text-dark-text">
+<div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

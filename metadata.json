@@ -1,0 +1,5 @@
+{
+  "name": "AI Image Studio",
+  "description": "A powerful and intuitive web application to generate stunning, high-quality images from text prompts using Google's Imagen 2 model. Features customizable styles, aspect ratios, and more.",
+  "requestFramePermissions": []
+}
