@@ -1,6 +1,5 @@
 
 import React, { useState, useCallback } from 'react';
-import { GoogleGenAI } from '@google/genai';
 
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
@@ -14,10 +13,8 @@ import { RegisterPage } from './components/RegisterPage';
 import { PricingPage } from './components/PricingPage';
 
 import { generateImages as callGeminiApi } from './services/geminiService';
-import type { GeneratedImage, GenerationOptions } from './types';
+import type { View, GeneratedImage, GenerationOptions } from './types';
 import { ASPECT_RATIOS, STYLES } from './constants';
-
-export type View = 'generator' | 'login' | 'register' | 'pricing';
 
 const App: React.FC = () => {
     const [options, setOptions] = useState<GenerationOptions>({
@@ -48,6 +45,7 @@ const App: React.FC = () => {
         setGeneratedImages([]);
 
         try {
+            const { GoogleGenAI } = await import('@google/genai');
             const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
             const imageUrls = await callGeminiApi(ai, options);
             const imagesWithIds = imageUrls.map(url => ({ id: crypto.randomUUID(), url }));
